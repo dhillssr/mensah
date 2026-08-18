@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="./image-slot.js"></script>
+  <title>The Mensah Foundation</title>
+  <style>
+    body { margin: 0; background: #FDFBF7; color: #091C41; font-family: 'Inter', sans-serif; text-wrap: pretty; }
+    a { color: #C49446; text-decoration: none; }
+    a:hover { color: #A3752C; text-decoration: underline; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px); }
+    .divider { width: 64px; height: 4px; background: #C49446; border-radius: 999px; margin: 16px 0 24px; }
+    .pill { display: inline-block; padding: 8px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: 14px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; transition: all 0.2s ease; }
+    .btn-gold { background: linear-gradient(135deg, #C49446, #A3752C); color: #091C41; box-shadow: 0 8px 24px rgba(196,148,70,0.35); }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(196,148,70,0.45); }
+    .btn-outline-light { background: transparent; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.5); }
+    .btn-outline-light:hover { border-color: #C49446; color: #C49446; }
+    .btn-outline-navy { background: transparent; color: #091C41; border: 2px solid #091C41; }
+    .btn-outline-navy:hover { border-color: #C49446; color: #C49446; }
+    .card { border-radius: 20px; background: #FFFFFF; box-shadow: 0 10px 30px rgba(9,28,65,0.08); border: 1px solid rgba(196,148,70,0.25); padding: 32px; }
+    .glass-card { border-radius: 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.12); padding: 32px; transition: border-color 0.25s ease, transform 0.25s ease; }
+    .glass-card:hover { border-color: #C49446; transform: translateY(-4px); }
+    .icon-badge { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(196,148,70,0.25), rgba(196,148,70,0.08)); color: #C49446; margin-bottom: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .grid-2 { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; }
+    @media (max-width: 900px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .grid-4 { grid-template-columns: 1fr; } }
+    .gradient-text { background: linear-gradient(90deg, #FFFFFF, #E2C799 55%, #C49446); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .input { width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid rgba(9,28,65,0.15); font-family: 'Inter', sans-serif; font-size: 15px; background: #FFFFFF; box-sizing: border-box; }
+    .input:focus { outline: none; border-color: #C49446; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #091C41; }
+    footer a { color: rgba(255,255,255,0.75); }
+    .nav-link { color: #091C41; font-weight: 600; font-size: 14px; }
+    .nav-link:hover { color: #C49446; text-decoration: none; }
+  </style>
+</helmet>
+
+<nav style="position: sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap: 24px; flex-wrap: wrap; padding: 16px clamp(20px, 5vw, 72px); background: rgba(253,251,247,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196,148,70,0.25);">
+  <div style="display:flex; align-items:center; gap: 12px;">
+    <img src="assets/logo.png" alt="The Mensah Foundation" style="height:44px; width:auto;" />
+    <div>
+      <span style="display:block; font-family:'Playfair Display',serif; font-weight:700; font-size:16px; color:#091C41;">The Mensah Foundation</span>
+      <span style="display:block; font-size:11px; letter-spacing:0.03em; color: rgba(9,28,65,0.6);">Serving Youth. Supporting Families. Building Community.</span>
+    </div>
+  </div>
+  <div style="display:flex; align-items:center; gap: 24px; flex-wrap: wrap;">
+    <a class="nav-link" href="#mission">Mission</a>
+    <a class="nav-link" href="#founder">Founder</a>
+    <a class="nav-link" href="#event">Upcoming Events</a>
+    <a class="nav-link" href="#involved">Get Involved</a>
+    <a class="nav-link" href="#contact">Contact</a>
+  </div>
+  <div style="display:flex; gap: 12px; white-space:nowrap;">
+    <button type="button" class="btn btn-outline-navy">Volunteer / Partner</button>
+    <button type="button" class="btn btn-gold">Support Our Mission</button>
+  </div>
+</nav>
+
+<section style="position:relative; overflow:hidden; background:#091C41; padding: 88px 0 96px;">
+  <div style="position:absolute; top:-120px; left:-80px; width:480px; height:480px; border-radius:50%; background: radial-gradient(circle, rgba(196,148,70,0.28), transparent 70%); pointer-events:none;"></div>
+  <div style="position:absolute; bottom:-160px; right:-100px; width:560px; height:560px; border-radius:50%; background: radial-gradient(circle, rgba(196,148,70,0.18), transparent 70%); pointer-events:none;"></div>
+  <div class="wrap" style="position:relative; display:grid; grid-template-columns: 1.15fr 0.85fr; gap:56px; align-items:center;">
+    <div>
+      <span class="pill" style="background:rgba(196,148,70,0.15); color:#E2C799; border:1px solid rgba(196,148,70,0.4);">Grassroots &amp; Community-Powered</span>
+      <h1 class="gradient-text" style="font-size: clamp(38px, 5vw, 62px); line-height:1.08; font-weight:800; margin-top:20px; max-width: 15ch;">Uplifting Youth. Empowering Families. Building Community.</h1>
+      <p style="font-size: 18px; line-height: 1.7; max-width: 56ch; margin: 24px 0 0; color: rgba(255,255,255,0.78);">A grassroots initiative dedicated to providing mentorship, resources, and meaningful life experiences to underserved children and families across the Twin Cities.</p>
+      <div style="display:flex; gap: 16px; flex-wrap: wrap; margin-top: 36px;">
+        <button type="button" class="btn btn-gold">See Upcoming Launch Event</button>
+        <button type="button" class="btn btn-outline-light">Become a Partner / Volunteer</button>
+      </div>
+      <div style="display:flex; gap: 32px; flex-wrap:wrap; margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.12);">
+        <div><p style="color:#E2C799; font-weight:700; font-size:14px; margin:0;">100% Direct</p><p style="color:rgba(255,255,255,0.6); font-size:13px; margin:4px 0 0;">Grassroots Impact</p></div>
+        <div><p style="color:#E2C799; font-weight:700; font-size:14px; margin:0;">Twin Cities</p><p style="color:rgba(255,255,255,0.6); font-size:13px; margin:4px 0 0;">Community Focus</p></div>
+        <div><p style="color:#E2C799; font-weight:700; font-size:14px; margin:0;">Athletics &amp; Mentorship</p><p style="color:rgba(255,255,255,0.6); font-size:13px; margin:4px 0 0;">Driven Programs</p></div>
+      </div>
+    </div>
+    <div class="glass-card" style="padding:0; overflow:hidden; border-radius:24px; border: 1px solid rgba(196,148,70,0.4);">
+      <div style="background: linear-gradient(135deg, #C49446, #A3752C); padding:20px 28px;">
+        <p style="margin:0; color:#091C41; font-weight:800; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">Launch Event Pass</p>
+      </div>
+      <div style="padding:28px;">
+        <image-slot id="hero-event-photo" shape="rounded" radius="16" placeholder="Drop an event or community photo" style="width:100%; aspect-ratio: 4/3;"></image-slot>
+        <h3 style="color:#FFFFFF; font-size:22px; margin-top:20px;">Back to School Community Giveaway</h3>
+        <p style="color:rgba(255,255,255,0.65); font-size:14px; margin:8px 0 0;">Bloomington–Richfield Area · August 29, 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mission" style="padding: 96px 0; background:#FDFBF7;">
+  <div class="wrap">
+    <span class="pill" style="background:rgba(196,148,70,0.12); color:#A3752C;">What We Stand For</span>
+    <div class="divider"></div>
+    <h2 style="font-size: clamp(30px, 3.5vw, 44px); font-weight:800; color:#091C41; max-width: 18ch; margin-bottom: 48px;">Direct Action, Consistent Care</h2>
+    <div class="grid-4">
+      <div class="card">
+        <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 20v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 style="font-size:18px; color:#091C41; margin-bottom:10px;">Community</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:rgba(9,28,65,0.7); margin:0;">Creating safe, uplifting spaces for local families.</p>
+      </div>
+      <div class="card">
+        <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <h3 style="font-size:18px; color:#091C41; margin-bottom:10px;">Leadership &amp; Mentorship</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:rgba(9,28,65,0.7); margin:0;">Guiding youth through authentic role models.</p>
+      </div>
+      <div class="card">
+        <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h3 style="font-size:18px; color:#091C41; margin-bottom:10px;">Opportunity</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:rgba(9,28,65,0.7); margin:0;">Providing educational tools, backpacks, and sports access.</p>
+      </div>
+      <div class="card">
+        <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3 style="font-size:18px; color:#091C41; margin-bottom:10px;">Consistency &amp; Compassion</h3>
+        <p style="font-size:14.5px; line-height:1.6; color:rgba(9,28,65,0.7); margin:0;">Showing up regularly for those who need it most.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="event" style="padding: 96px 0; background: linear-gradient(135deg, #C49446, #A3752C); position:relative; overflow:hidden;">
+  <div style="position:absolute; inset:0; background: radial-gradient(circle at 80% 20%, rgba(9,28,65,0.18), transparent 60%);"></div>
+  <div class="wrap" style="position:relative;">
+    <span class="pill" style="background:#091C41; color:#E2C799; border:1px solid rgba(255,255,255,0.2);">Upcoming Initiative — August 29, 2026</span>
+    <h2 style="font-size: clamp(30px, 3.5vw, 46px); color:#091C41; font-weight:800; margin: 20px 0 6px;">Back to School Community Giveaway</h2>
+    <p style="font-size:16px; color:rgba(9,28,65,0.75); font-weight:600; margin: 0 0 40px;">Bloomington–Richfield Area, Twin Cities</p>
+    <div class="grid-2" style="align-items:stretch;">
+      <div style="border-radius:20px; background:#091C41; padding:32px; box-shadow: 0 20px 40px rgba(9,28,65,0.3);">
+        <p class="pill" style="background:rgba(196,148,70,0.2); color:#E2C799; margin-bottom:16px;">What We're Providing</p>
+        <p style="color:rgba(255,255,255,0.85); font-size:15px; line-height:1.7; margin:0;">Backpack &amp; school supply giveaways, free food and drinks, sports activities, family wellness resources.</p>
+      </div>
+      <div style="border-radius:20px; background:#091C41; padding:32px; box-shadow: 0 20px 40px rgba(9,28,65,0.3);">
+        <p class="pill" style="background:rgba(196,148,70,0.2); color:#E2C799; margin-bottom:16px;">Target Audience</p>
+        <p style="color:rgba(255,255,255,0.85); font-size:15px; line-height:1.7; margin:0;">20–40 local youth and families in need of back-to-school essentials.</p>
+      </div>
+    </div>
+    <div style="display:flex; gap: 16px; flex-wrap: wrap; margin-top: 40px;">
+      <button type="button" class="btn" style="background:#091C41; color:#E2C799; box-shadow:0 10px 24px rgba(9,28,65,0.35);">Register as a Volunteer</button>
+      <button type="button" class="btn btn-outline-navy">Donate Supplies</button>
+    </div>
+  </div>
+</section>
+
+<section id="founder" style="padding: 96px 0; background:#F4EFEA;">
+  <div class="wrap grid-2" style="align-items:center;">
+    <figure style="margin:0; border-radius:24px; overflow:hidden; box-shadow: 0 20px 40px rgba(9,28,65,0.15); border: 1px solid rgba(196,148,70,0.3);">
+      <image-slot id="founder-photo" shape="rect" placeholder="Drop a photo of Dennis Mensah Jr."></image-slot>
+    </figure>
+    <div>
+      <span class="pill" style="background:rgba(196,148,70,0.12); color:#A3752C;">About the Founder</span>
+      <div class="divider"></div>
+      <h2 style="font-size: clamp(28px, 3vw, 38px); color:#091C41; font-weight:800; margin-bottom: 18px;">Rooted in Athletics &amp; Community</h2>
+      <p style="font-size:16px; line-height:1.7; color: rgba(9,28,65,0.75); margin: 0 0 28px;">Dennis Mensah Jr., a professional and former Division I student-athlete, built the foundation on the discipline of athletics and a genuine heart for giving back — launching it as a personally funded grassroots movement to ensure no child is left without resources, encouragement, or a positive mentor.</p>
+      <div class="card" style="border-left: 4px solid #C49446; border-radius:16px;">
+        <p style="font-size:17px; font-style:italic; color:#091C41; margin: 0 0 12px; line-height:1.6;">"Community impact begins with consistency, compassion, and showing up for people who need support. The Mensah Foundation was built to create meaningful experiences for youth and families one event at a time."</p>
+        <p style="margin:0; font-weight:700; color:#A3752C; font-size:14px;">— Dennis Mensah Jr.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="involved" style="padding: 96px 0; background:#091C41; position:relative; overflow:hidden;">
+  <div style="position:absolute; top:-140px; right:-100px; width:420px; height:420px; border-radius:50%; background: radial-gradient(circle, rgba(196,148,70,0.2), transparent 70%); pointer-events:none;"></div>
+  <div class="wrap" style="position:relative;">
+    <span class="pill" style="background:rgba(196,148,70,0.15); color:#E2C799; border:1px solid rgba(196,148,70,0.4);">Community First</span>
+    <h2 class="gradient-text" style="font-size: clamp(30px, 3.5vw, 44px); font-weight:800; margin: 20px 0 48px;">Join Hands With Us</h2>
+    <div class="grid-3" style="margin-bottom: 56px;">
+      <div class="glass-card">
+        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+        <h3 style="font-size:17px; color:#FFFFFF; margin-bottom:10px;">Local Businesses &amp; Restaurants</h3>
+        <p style="font-size:14.5px; color:rgba(255,255,255,0.65); line-height:1.6; margin:0;">Provide food, drinks, snacks, or event sponsorships.</p>
+      </div>
+      <div class="glass-card">
+        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <h3 style="font-size:17px; color:#FFFFFF; margin-bottom:10px;">Volunteers &amp; Mentors</h3>
+        <p style="font-size:14.5px; color:rgba(255,255,255,0.65); line-height:1.6; margin:0;">Lend your time, lead sports clinics, or help with event operations.</p>
+      </div>
+      <div class="glass-card">
+        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-3V5a3 3 0 0 0-6 0v2H8a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg></div>
+        <h3 style="font-size:17px; color:#FFFFFF; margin-bottom:10px;">Supplies &amp; In-Kind Donations</h3>
+        <p style="font-size:14.5px; color:rgba(255,255,255,0.65); line-height:1.6; margin:0;">Donate backpacks, school supplies, or hygiene essentials.</p>
+      </div>
+    </div>
+
+    <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+      <div id="contact" class="glass-card" style="max-width:640px; border-radius:24px;">
+        <h3 style="font-size:22px; color:#FFFFFF; margin-bottom: 24px;">Partner or Volunteer Inquiry</h3>
+        <form style="display:flex; flex-direction:column; gap: 20px;" onsubmit="return false;">
+          <div>
+            <label style="color:rgba(255,255,255,0.85);" for="mf-name">Name</label>
+            <input id="mf-name" class="input" type="text" placeholder="Jane Smith" />
+          </div>
+          <div>
+            <label style="color:rgba(255,255,255,0.85);" for="mf-email">Email</label>
+            <input id="mf-email" class="input" type="email" placeholder="jane@email.com" />
+          </div>
+          <div>
+            <label style="color:rgba(255,255,255,0.85);" for="mf-org">Organization / Business</label>
+            <input id="mf-org" class="input" type="text" placeholder="Optional" />
+          </div>
+          <div>
+            <label style="color:rgba(255,255,255,0.85);" for="mf-help">How You'd Like to Help</label>
+            <select id="mf-help" class="input">
+              <option>Food Sponsor</option>
+              <option>Volunteer</option>
+              <option>Supplies</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div>
+            <label style="color:rgba(255,255,255,0.85);" for="mf-msg">Message</label>
+            <textarea id="mf-msg" class="input" rows="4" placeholder="Tell us how you'd like to help"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;">Submit</button>
+        </form>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<section style="padding: 96px 0; background:#FDFBF7;">
+  <div class="wrap">
+    <span class="pill" style="background:rgba(196,148,70,0.12); color:#A3752C;">Year One Roadmap</span>
+    <div class="divider"></div>
+    <h2 style="font-size: clamp(30px, 3.5vw, 44px); color:#091C41; font-weight:800; margin-bottom: 48px;">Long-Term Vision</h2>
+    <div class="grid-3">
+      <sc-for list="{{ phases }}" as="phase" hint-placeholder-count="3">
+        <div class="card" style="{{ phase.style }}">
+          <span class="pill" style="{{ phase.tagStyle }}">{{ phase.tag }}</span>
+          <h3 style="font-size:19px; color:#091C41; margin: 18px 0 10px;">{{ phase.title }}</h3>
+          <p style="font-size:14.5px; color:rgba(9,28,65,0.7); line-height:1.6; margin:0;">{{ phase.copy }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<footer style="background: #091C41; color: #FFFFFF;">
+  <div class="wrap" style="padding: 64px 0 32px; display:flex; flex-wrap:wrap; gap: 48px; justify-content: space-between;">
+    <div style="max-width:320px;">
+      <div style="display:flex; align-items:center; gap: 12px; margin-bottom: 16px;">
+        <img src="assets/logo.png" alt="The Mensah Foundation" style="height:40px; width:auto; background:#FFFFFF; padding:4px; border-radius:8px;" />
+        <span style="font-family: 'Playfair Display', serif; font-weight:700; font-size:17px;">The Mensah Foundation</span>
+      </div>
+      <p style="font-size:13.5px; color:rgba(255,255,255,0.6); margin:0;">Serving Youth. Supporting Families. Building Community.</p>
+      <p style="font-size:13.5px; color:rgba(255,255,255,0.6); margin: 12px 0 0;">Twin Cities, Minnesota</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap: 10px; font-size:13.5px;">
+      <a href="#mission">About</a>
+      <a href="#event">Events</a>
+      <a href="#involved">Get Involved</a>
+      <a href="#contact">Contact</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <div style="display:flex; flex-direction:column; gap: 10px; font-size:13.5px;">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div class="wrap" style="padding-bottom: 28px; font-size:12px; color:rgba(255,255,255,0.45); border-top: 1px solid rgba(255,255,255,0.1); padding-top:24px;">© 2026 The Mensah Foundation. All rights reserved.</div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}, &quot;activePhase&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: 1, &quot;tsType&quot;: &quot;number&quot;, &quot;options&quot;: [1,2,3], &quot;section&quot;: &quot;Roadmap&quot;}, &quot;showForm&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Get Involved&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const activePhase = this.props.activePhase ?? 1;
+    const baseStyle = { border: '1px solid rgba(196,148,70,0.25)' };
+    const activeStyle = { border: '2px solid #C49446', boxShadow: '0 12px 30px rgba(196,148,70,0.25)' };
+    const baseTag = 'background:rgba(9,28,65,0.08); color:#091C41;';
+    const activeTag = 'background:#C49446; color:#091C41;';
+    return {
+      showForm: this.props.showForm ?? true,
+      phases: [
+        { tag: 'Phase 1 — Current', title: 'Grassroots Launch', copy: 'Back-to-School Drives, Direct Family Support.', style: activePhase === 1 ? activeStyle : baseStyle, tagStyle: activePhase === 1 ? activeTag : baseTag },
+        { tag: 'Phase 2', title: 'Non-Profit Expansion', copy: 'Year-Round Mentorship, Holiday Giveback Programs.', style: activePhase === 2 ? activeStyle : baseStyle, tagStyle: activePhase === 2 ? activeTag : baseTag },
+        { tag: 'Phase 3', title: 'Youth Sports Academies', copy: "Children's Hospital Outreach & Scholarships.", style: activePhase === 3 ? activeStyle : baseStyle, tagStyle: activePhase === 3 ? activeTag : baseTag },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
