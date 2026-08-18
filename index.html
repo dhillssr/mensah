@@ -1,296 +1,294 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Mensah Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { navy: '#091C41', gold: '#C49446', golddark: '#A3752C', cream: '#FDFBF7', warm: '#F4EFEA' },
+        fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
+      }
+    }
+  }
+</script>
+<style>
+  .gradient-text { background: linear-gradient(90deg, #FFFFFF, #E2C799 55%, #C49446); -webkit-background-clip: text; background-clip: text; color: transparent; }
+</style>
 </head>
-<body>
-<x-dc>
+<body class="overflow-x-hidden bg-cream text-navy font-sans">
 
-<helmet>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap">
-  <script src="./image-slot.js"></script>
-  <title>The Mensah Foundation</title>
-  <style>
-    body { margin: 0; background: #FDFBF7; color: #091C41; font-family: 'Inter', sans-serif; text-wrap: pretty; }
-    a { color: #C49446; text-decoration: none; }
-    a:hover { color: #A3752C; text-decoration: underline; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; }
-    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px); }
-    .divider { width: 64px; height: 4px; background: #C49446; border-radius: 999px; margin: 16px 0 24px; }
-    .pill { display: inline-block; padding: 8px 18px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; border-radius: 14px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; transition: all 0.2s ease; }
-    .btn-gold { background: linear-gradient(135deg, #C49446, #A3752C); color: #091C41; box-shadow: 0 8px 24px rgba(196,148,70,0.35); }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(196,148,70,0.45); }
-    .btn-outline-light { background: transparent; color: #FFFFFF; border: 2px solid rgba(255,255,255,0.5); }
-    .btn-outline-light:hover { border-color: #C49446; color: #C49446; }
-    .btn-outline-navy { background: transparent; color: #091C41; border: 2px solid #091C41; }
-    .btn-outline-navy:hover { border-color: #C49446; color: #C49446; }
-    .card { border-radius: 20px; background: #FFFFFF; box-shadow: 0 10px 30px rgba(9,28,65,0.08); border: 1px solid rgba(196,148,70,0.25); padding: 32px; }
-    .glass-card { border-radius: 20px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.12); padding: 32px; transition: border-color 0.25s ease, transform 0.25s ease; }
-    .glass-card:hover { border-color: #C49446; transform: translateY(-4px); }
-    .icon-badge { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(196,148,70,0.25), rgba(196,148,70,0.08)); color: #C49446; margin-bottom: 20px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .grid-2 { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; }
-    @media (max-width: 900px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } }
-    @media (max-width: 560px) { .grid-4 { grid-template-columns: 1fr; } }
-    .gradient-text { background: linear-gradient(90deg, #FFFFFF, #E2C799 55%, #C49446); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .input { width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid rgba(9,28,65,0.15); font-family: 'Inter', sans-serif; font-size: 15px; background: #FFFFFF; box-sizing: border-box; }
-    .input:focus { outline: none; border-color: #C49446; }
-    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #091C41; }
-    footer a { color: rgba(255,255,255,0.75); }
-    .nav-link { color: #091C41; font-weight: 600; font-size: 14px; }
-    .nav-link:hover { color: #C49446; text-decoration: none; }
-  </style>
-</helmet>
-
-<nav style="position: sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap: 24px; flex-wrap: wrap; padding: 16px clamp(20px, 5vw, 72px); background: rgba(253,251,247,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(196,148,70,0.25);">
-  <div style="display:flex; align-items:center; gap: 12px;">
-    <img src="assets/logo.png" alt="The Mensah Foundation" style="height:44px; width:auto;" />
-    <div>
-      <span style="display:block; font-family:'Playfair Display',serif; font-weight:700; font-size:16px; color:#091C41;">The Mensah Foundation</span>
-      <span style="display:block; font-size:11px; letter-spacing:0.03em; color: rgba(9,28,65,0.6);">Serving Youth. Supporting Families. Building Community.</span>
+<nav class="sticky top-0 z-20 bg-cream/90 backdrop-blur-md border-b border-gold/25">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-4 sm:px-6 py-4">
+    <div class="flex items-center gap-3">
+      <img src="assets/logo.png" alt="The Mensah Foundation" class="h-10 sm:h-11 w-auto" />
+      <div>
+        <span class="block font-serif font-bold text-base text-navy">The Mensah Foundation</span>
+        <span class="hidden sm:block text-[11px] text-navy/60">Serving Youth. Supporting Families. Building Community.</span>
+      </div>
     </div>
+    <div class="hidden md:flex items-center gap-6">
+      <a class="text-sm font-semibold hover:text-gold" href="#mission">Mission</a>
+      <a class="text-sm font-semibold hover:text-gold" href="#founder">Founder</a>
+      <a class="text-sm font-semibold hover:text-gold" href="#event">Upcoming Events</a>
+      <a class="text-sm font-semibold hover:text-gold" href="#involved">Get Involved</a>
+      <a class="text-sm font-semibold hover:text-gold" href="#contact">Contact</a>
+    </div>
+    <div class="hidden md:flex gap-3">
+      <button class="px-5 py-2.5 rounded-xl border-2 border-navy text-navy font-bold text-sm hover:border-gold hover:text-gold transition">Volunteer / Partner</button>
+      <button class="px-5 py-2.5 rounded-xl font-bold text-sm text-navy bg-gradient-to-br from-gold to-golddark shadow-lg shadow-gold/30 hover:-translate-y-0.5 transition">Support Our Mission</button>
+    </div>
+    <button id="menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
   </div>
-  <div style="display:flex; align-items:center; gap: 24px; flex-wrap: wrap;">
-    <a class="nav-link" href="#mission">Mission</a>
-    <a class="nav-link" href="#founder">Founder</a>
-    <a class="nav-link" href="#event">Upcoming Events</a>
-    <a class="nav-link" href="#involved">Get Involved</a>
-    <a class="nav-link" href="#contact">Contact</a>
-  </div>
-  <div style="display:flex; gap: 12px; white-space:nowrap;">
-    <button type="button" class="btn btn-outline-navy">Volunteer / Partner</button>
-    <button type="button" class="btn btn-gold">Support Our Mission</button>
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col gap-4 px-4 pb-6 border-t border-gold/20">
+    <a class="text-sm font-semibold pt-4" href="#mission">Mission</a>
+    <a class="text-sm font-semibold" href="#founder">Founder</a>
+    <a class="text-sm font-semibold" href="#event">Upcoming Events</a>
+    <a class="text-sm font-semibold" href="#involved">Get Involved</a>
+    <a class="text-sm font-semibold" href="#contact">Contact</a>
+    <div class="flex flex-col gap-3 pt-2">
+      <button class="w-full px-5 py-3 rounded-xl border-2 border-navy text-navy font-bold text-sm">Volunteer / Partner</button>
+      <button class="w-full px-5 py-3 rounded-xl font-bold text-sm text-navy bg-gradient-to-br from-gold to-golddark">Support Our Mission</button>
+    </div>
   </div>
 </nav>
 
-<section style="position:relative; overflow:hidden; background:#091C41; padding: 88px 0 96px;">
-  <div style="position:absolute; top:-120px; left:-80px; width:480px; height:480px; border-radius:50%; background: radial-gradient(circle, rgba(196,148,70,0.28), transparent 70%); pointer-events:none;"></div>
-  <div style="position:absolute; bottom:-160px; right:-100px; width:560px; height:560px; border-radius:50%; background: radial-gradient(circle, rgba(196,148,70,0.18), transparent 70%); pointer-events:none;"></div>
-  <div class="wrap" style="position:relative; display:grid; grid-template-columns: 1.15fr 0.85fr; gap:56px; align-items:center;">
+<section class="relative overflow-hidden bg-navy py-16 sm:py-20 md:py-24">
+  <div class="absolute -top-24 -left-16 w-72 h-72 sm:w-[480px] sm:h-[480px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(196,148,70,0.28), transparent 70%);"></div>
+  <div class="absolute -bottom-32 -right-16 w-80 h-80 sm:w-[560px] sm:h-[560px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(196,148,70,0.18), transparent 70%);"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
     <div>
-      <span class="pill" style="background:rgba(196,148,70,0.15); color:#E2C799; border:1px solid rgba(196,148,70,0.4);">Grassroots &amp; Community-Powered</span>
-      <h1 class="gradient-text" style="font-size: clamp(38px, 5vw, 62px); line-height:1.08; font-weight:800; margin-top:20px; max-width: 15ch;">Uplifting Youth. Empowering Families. Building Community.</h1>
-      <p style="font-size: 18px; line-height: 1.7; max-width: 56ch; margin: 24px 0 0; color: rgba(255,255,255,0.78);">A grassroots initiative dedicated to providing mentorship, resources, and meaningful life experiences to underserved children and families across the Twin Cities.</p>
-      <div style="display:flex; gap: 16px; flex-wrap: wrap; margin-top: 36px;">
-        <button type="button" class="btn btn-gold">See Upcoming Launch Event</button>
-        <button type="button" class="btn btn-outline-light">Become a Partner / Volunteer</button>
+      <span class="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gold/15 text-[#E2C799] border border-gold/40">Grassroots &amp; Community-Powered</span>
+      <h1 class="gradient-text font-serif font-extrabold leading-tight mt-5 text-3xl sm:text-5xl lg:text-6xl max-w-xl">Uplifting Youth. Empowering Families. Building Community.</h1>
+      <p class="text-base sm:text-lg leading-relaxed max-w-xl mt-6 text-white/80">A grassroots initiative dedicated to providing mentorship, resources, and meaningful life experiences to underserved children and families across the Twin Cities.</p>
+      <div class="flex flex-col sm:flex-row gap-4 mt-9 w-full sm:w-auto">
+        <button class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-navy bg-gradient-to-br from-gold to-golddark shadow-lg shadow-gold/30 hover:-translate-y-0.5 transition">See Upcoming Launch Event</button>
+        <button class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-white border-2 border-white/50 hover:border-gold hover:text-gold transition">Become a Partner / Volunteer</button>
       </div>
-      <div style="display:flex; gap: 32px; flex-wrap:wrap; margin-top:48px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.12);">
-        <div><p style="color:#E2C799; font-weight:700; font-size:14px; margin:0;">100% Direct</p><p style="color:rgba(255,255,255,0.6); font-size:13px; margin:4px 0 0;">Grassroots Impact</p></div>
-        <div><p style="color:#E2C799; font-weight:700; font-size:14px; margin:0;">Twin Cities</p><p style="color:rgba(255,255,255,0.6); font-size:13px; margin:4px 0 0;">Community Focus</p></div>
-        <div><p style="color:#E2C799; font-weight:700; font-size:14px; margin:0;">Athletics &amp; Mentorship</p><p style="color:rgba(255,255,255,0.6); font-size:13px; margin:4px 0 0;">Driven Programs</p></div>
-      </div>
-    </div>
-    <div class="glass-card" style="padding:0; overflow:hidden; border-radius:24px; border: 1px solid rgba(196,148,70,0.4);">
-      <div style="background: linear-gradient(135deg, #C49446, #A3752C); padding:20px 28px;">
-        <p style="margin:0; color:#091C41; font-weight:800; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;">Launch Event Pass</p>
-      </div>
-      <div style="padding:28px;">
-        <image-slot id="hero-event-photo" shape="rounded" radius="16" placeholder="Drop an event or community photo" src="./assets/back2school.jpg" style="width:100%; aspect-ratio: 4/3;"></image-slot>
-        <h3 style="color:#FFFFFF; font-size:22px; margin-top:20px;">Back to School Community Giveaway</h3>
-        <p style="color:rgba(255,255,255,0.65); font-size:14px; margin:8px 0 0;">Bloomington–Richfield Area · August 29, 2026</p>
+      <div class="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
+        <div><p class="text-[#E2C799] font-bold text-sm">100% Direct</p><p class="text-white/60 text-xs mt-1">Grassroots Impact</p></div>
+        <div><p class="text-[#E2C799] font-bold text-sm">Twin Cities</p><p class="text-white/60 text-xs mt-1">Community Focus</p></div>
+        <div><p class="text-[#E2C799] font-bold text-sm">Athletics &amp; Mentorship</p><p class="text-white/60 text-xs mt-1">Driven Programs</p></div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="mission" style="padding: 96px 0; background:#FDFBF7;">
-  <div class="wrap">
-    <span class="pill" style="background:rgba(196,148,70,0.12); color:#A3752C;">What We Stand For</span>
-    <div class="divider"></div>
-    <h2 style="font-size: clamp(30px, 3.5vw, 44px); font-weight:800; color:#091C41; max-width: 18ch; margin-bottom: 48px;">Direct Action, Consistent Care</h2>
-    <div class="grid-4">
-      <div class="card">
-        <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 20v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 style="font-size:18px; color:#091C41; margin-bottom:10px;">Community</h3>
-        <p style="font-size:14.5px; line-height:1.6; color:rgba(9,28,65,0.7); margin:0;">Creating safe, uplifting spaces for local families.</p>
+    <div class="rounded-3xl overflow-hidden border border-gold/40 bg-white/5 backdrop-blur-md">
+      <div class="bg-gradient-to-br from-gold to-golddark px-6 sm:px-7 py-4">
+        <p class="text-navy font-extrabold text-xs uppercase tracking-wider m-0">Launch Event Pass</p>
       </div>
-      <div class="card">
-        <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
-        <h3 style="font-size:18px; color:#091C41; margin-bottom:10px;">Leadership &amp; Mentorship</h3>
-        <p style="font-size:14.5px; line-height:1.6; color:rgba(9,28,65,0.7); margin:0;">Guiding youth through authentic role models.</p>
-      </div>
-      <div class="card">
-        <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <h3 style="font-size:18px; color:#091C41; margin-bottom:10px;">Opportunity</h3>
-        <p style="font-size:14.5px; line-height:1.6; color:rgba(9,28,65,0.7); margin:0;">Providing educational tools, backpacks, and sports access.</p>
-      </div>
-      <div class="card">
-        <div class="icon-badge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h3 style="font-size:18px; color:#091C41; margin-bottom:10px;">Consistency &amp; Compassion</h3>
-        <p style="font-size:14.5px; line-height:1.6; color:rgba(9,28,65,0.7); margin:0;">Showing up regularly for those who need it most.</p>
+      <div class="p-6 sm:p-7">
+        <img src="assets/back2school.jpg" alt="Back to School Community Giveaway" class="w-full aspect-[4/3] rounded-2xl object-cover border border-white/15" />
+        <h3 class="font-serif text-white text-xl sm:text-2xl mt-5">Back to School Community Giveaway</h3>
+        <p class="text-white/65 text-sm mt-2">Bloomington–Richfield Area · August 29, 2026</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="event" style="padding: 96px 0; background: linear-gradient(135deg, #C49446, #A3752C); position:relative; overflow:hidden;">
-  <div style="position:absolute; inset:0; background: radial-gradient(circle at 80% 20%, rgba(9,28,65,0.18), transparent 60%);"></div>
-  <div class="wrap" style="position:relative;">
-    <span class="pill" style="background:#091C41; color:#E2C799; border:1px solid rgba(255,255,255,0.2);">Upcoming Initiative — August 29, 2026</span>
-    <h2 style="font-size: clamp(30px, 3.5vw, 46px); color:#091C41; font-weight:800; margin: 20px 0 6px;">Back to School Community Giveaway</h2>
-    <p style="font-size:16px; color:rgba(9,28,65,0.75); font-weight:600; margin: 0 0 40px;">Bloomington–Richfield Area, Twin Cities</p>
-    <div class="grid-2" style="align-items:stretch;">
-      <div style="border-radius:20px; background:#091C41; padding:32px; box-shadow: 0 20px 40px rgba(9,28,65,0.3);">
-        <p class="pill" style="background:rgba(196,148,70,0.2); color:#E2C799; margin-bottom:16px;">What We're Providing</p>
-        <p style="color:rgba(255,255,255,0.85); font-size:15px; line-height:1.7; margin:0;">Backpack &amp; school supply giveaways, free food and drinks, sports activities, family wellness resources.</p>
+<section id="mission" class="py-16 sm:py-20 md:py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <span class="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gold/10 text-golddark">What We Stand For</span>
+    <div class="w-16 h-1 bg-gold rounded-full my-5"></div>
+    <h2 class="font-serif font-extrabold text-navy text-2xl sm:text-3xl md:text-4xl max-w-md mb-10">Direct Action, Consistent Care</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="rounded-2xl bg-white border border-gold/20 shadow-xl shadow-navy/5 p-6 sm:p-7">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br from-gold/25 to-gold/10 text-gold">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 20v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="text-lg text-navy mb-2 font-semibold">Community</h3>
+        <p class="text-sm leading-relaxed text-navy/70">Creating safe, uplifting spaces for local families.</p>
       </div>
-      <div style="border-radius:20px; background:#091C41; padding:32px; box-shadow: 0 20px 40px rgba(9,28,65,0.3);">
-        <p class="pill" style="background:rgba(196,148,70,0.2); color:#E2C799; margin-bottom:16px;">Target Audience</p>
-        <p style="color:rgba(255,255,255,0.85); font-size:15px; line-height:1.7; margin:0;">20–40 local youth and families in need of back-to-school essentials.</p>
+      <div class="rounded-2xl bg-white border border-gold/20 shadow-xl shadow-navy/5 p-6 sm:p-7">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br from-gold/25 to-gold/10 text-gold">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+        </div>
+        <h3 class="text-lg text-navy mb-2 font-semibold">Leadership &amp; Mentorship</h3>
+        <p class="text-sm leading-relaxed text-navy/70">Guiding youth through authentic role models.</p>
       </div>
-    </div>
-    <div style="display:flex; gap: 16px; flex-wrap: wrap; margin-top: 40px;">
-      <button type="button" class="btn" style="background:#091C41; color:#E2C799; box-shadow:0 10px 24px rgba(9,28,65,0.35);">Register as a Volunteer</button>
-      <button type="button" class="btn btn-outline-navy">Donate Supplies</button>
+      <div class="rounded-2xl bg-white border border-gold/20 shadow-xl shadow-navy/5 p-6 sm:p-7">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br from-gold/25 to-gold/10 text-gold">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3 class="text-lg text-navy mb-2 font-semibold">Opportunity</h3>
+        <p class="text-sm leading-relaxed text-navy/70">Providing educational tools, backpacks, and sports access.</p>
+      </div>
+      <div class="rounded-2xl bg-white border border-gold/20 shadow-xl shadow-navy/5 p-6 sm:p-7">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br from-gold/25 to-gold/10 text-gold">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="text-lg text-navy mb-2 font-semibold">Consistency &amp; Compassion</h3>
+        <p class="text-sm leading-relaxed text-navy/70">Showing up regularly for those who need it most.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="founder" style="padding: 96px 0; background:#F4EFEA;">
-  <div class="wrap grid-2" style="align-items:center;">
-    <figure style="margin:0; border-radius:24px; overflow:hidden; box-shadow: 0 20px 40px rgba(9,28,65,0.15); border: 1px solid rgba(196,148,70,0.3);">
-      <image-slot id="founder-photo" shape="rect" placeholder="Drop a photo of Dennis Mensah Jr."></image-slot>
+<section id="event" class="relative overflow-hidden py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gold to-golddark">
+  <div class="absolute inset-0" style="background: radial-gradient(circle at 80% 20%, rgba(9,28,65,0.18), transparent 60%);"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <span class="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-navy text-[#E2C799] border border-white/20">Upcoming Initiative — August 29, 2026</span>
+    <h2 class="font-serif font-extrabold text-navy text-2xl sm:text-3xl md:text-4xl mt-5 mb-1.5">Back to School Community Giveaway</h2>
+    <p class="text-navy/75 font-semibold text-sm sm:text-base mb-10">Bloomington–Richfield Area, Twin Cities</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="rounded-2xl bg-navy p-6 sm:p-8 shadow-2xl shadow-navy/30">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase bg-gold/20 text-[#E2C799] mb-4">What We're Providing</span>
+        <p class="text-white/85 text-sm leading-relaxed">Backpack &amp; school supply giveaways, free food and drinks, sports activities, family wellness resources.</p>
+      </div>
+      <div class="rounded-2xl bg-navy p-6 sm:p-8 shadow-2xl shadow-navy/30">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase bg-gold/20 text-[#E2C799] mb-4">Target Audience</span>
+        <p class="text-white/85 text-sm leading-relaxed">20–40 local youth and families in need of back-to-school essentials.</p>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 mt-10 w-full sm:w-auto">
+      <button class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold bg-navy text-[#E2C799] shadow-lg shadow-navy/30">Register as a Volunteer</button>
+      <button class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-navy border-2 border-navy hover:border-white hover:text-white transition">Donate Supplies</button>
+    </div>
+  </div>
+</section>
+
+<section id="founder" class="py-16 sm:py-20 md:py-24 bg-warm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-14 items-center">
+    <figure class="m-0 rounded-3xl overflow-hidden border border-gold/30 shadow-xl shadow-navy/15">
+      <div class="w-full aspect-[4/3] bg-navy/10 flex items-center justify-center text-navy/40 text-sm">Photo of Dennis Mensah Jr.</div>
     </figure>
     <div>
-      <span class="pill" style="background:rgba(196,148,70,0.12); color:#A3752C;">About the Founder</span>
-      <div class="divider"></div>
-      <h2 style="font-size: clamp(28px, 3vw, 38px); color:#091C41; font-weight:800; margin-bottom: 18px;">Rooted in Athletics &amp; Community</h2>
-      <p style="font-size:16px; line-height:1.7; color: rgba(9,28,65,0.75); margin: 0 0 28px;">Dennis Mensah Jr., a professional and former Division I student-athlete, built the foundation on the discipline of athletics and a genuine heart for giving back — launching it as a personally funded grassroots movement to ensure no child is left without resources, encouragement, or a positive mentor.</p>
-      <div class="card" style="border-left: 4px solid #C49446; border-radius:16px;">
-        <p style="font-size:17px; font-style:italic; color:#091C41; margin: 0 0 12px; line-height:1.6;">"Community impact begins with consistency, compassion, and showing up for people who need support. The Mensah Foundation was built to create meaningful experiences for youth and families one event at a time."</p>
-        <p style="margin:0; font-weight:700; color:#A3752C; font-size:14px;">— Dennis Mensah Jr.</p>
+      <span class="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gold/10 text-golddark">About the Founder</span>
+      <div class="w-16 h-1 bg-gold rounded-full my-5"></div>
+      <h2 class="font-serif font-extrabold text-navy text-2xl sm:text-3xl md:text-4xl mb-4">Rooted in Athletics &amp; Community</h2>
+      <p class="text-base leading-relaxed text-navy/75 mb-7">Dennis Mensah Jr., a professional and former Division I student-athlete, built the foundation on the discipline of athletics and a genuine heart for giving back — launching it as a personally funded grassroots movement to ensure no child is left without resources, encouragement, or a positive mentor.</p>
+      <div class="rounded-2xl bg-white border-l-4 border-gold shadow-xl shadow-navy/5 p-6 sm:p-7">
+        <p class="text-base italic text-navy mb-3 leading-relaxed">"Community impact begins with consistency, compassion, and showing up for people who need support. The Mensah Foundation was built to create meaningful experiences for youth and families one event at a time."</p>
+        <p class="font-bold text-golddark text-sm">— Dennis Mensah Jr.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="involved" style="padding: 96px 0; background:#091C41; position:relative; overflow:hidden;">
-  <div style="position:absolute; top:-140px; right:-100px; width:420px; height:420px; border-radius:50%; background: radial-gradient(circle, rgba(196,148,70,0.2), transparent 70%); pointer-events:none;"></div>
-  <div class="wrap" style="position:relative;">
-    <span class="pill" style="background:rgba(196,148,70,0.15); color:#E2C799; border:1px solid rgba(196,148,70,0.4);">Community First</span>
-    <h2 class="gradient-text" style="font-size: clamp(30px, 3.5vw, 44px); font-weight:800; margin: 20px 0 48px;">Join Hands With Us</h2>
-    <div class="grid-3" style="margin-bottom: 56px;">
-      <div class="glass-card">
-        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
-        <h3 style="font-size:17px; color:#FFFFFF; margin-bottom:10px;">Local Businesses &amp; Restaurants</h3>
-        <p style="font-size:14.5px; color:rgba(255,255,255,0.65); line-height:1.6; margin:0;">Provide food, drinks, snacks, or event sponsorships.</p>
-      </div>
-      <div class="glass-card">
-        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
-        <h3 style="font-size:17px; color:#FFFFFF; margin-bottom:10px;">Volunteers &amp; Mentors</h3>
-        <p style="font-size:14.5px; color:rgba(255,255,255,0.65); line-height:1.6; margin:0;">Lend your time, lead sports clinics, or help with event operations.</p>
-      </div>
-      <div class="glass-card">
-        <div class="icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-3V5a3 3 0 0 0-6 0v2H8a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg></div>
-        <h3 style="font-size:17px; color:#FFFFFF; margin-bottom:10px;">Supplies &amp; In-Kind Donations</h3>
-        <p style="font-size:14.5px; color:rgba(255,255,255,0.65); line-height:1.6; margin:0;">Donate backpacks, school supplies, or hygiene essentials.</p>
-      </div>
-    </div>
-
-    <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
-      <div id="contact" class="glass-card" style="max-width:640px; border-radius:24px;">
-        <h3 style="font-size:22px; color:#FFFFFF; margin-bottom: 24px;">Partner or Volunteer Inquiry</h3>
-        <form style="display:flex; flex-direction:column; gap: 20px;" onsubmit="return false;">
-          <div>
-            <label style="color:rgba(255,255,255,0.85);" for="mf-name">Name</label>
-            <input id="mf-name" class="input" type="text" placeholder="Jane Smith" />
-          </div>
-          <div>
-            <label style="color:rgba(255,255,255,0.85);" for="mf-email">Email</label>
-            <input id="mf-email" class="input" type="email" placeholder="jane@email.com" />
-          </div>
-          <div>
-            <label style="color:rgba(255,255,255,0.85);" for="mf-org">Organization / Business</label>
-            <input id="mf-org" class="input" type="text" placeholder="Optional" />
-          </div>
-          <div>
-            <label style="color:rgba(255,255,255,0.85);" for="mf-help">How You'd Like to Help</label>
-            <select id="mf-help" class="input">
-              <option>Food Sponsor</option>
-              <option>Volunteer</option>
-              <option>Supplies</option>
-              <option>General Inquiry</option>
-            </select>
-          </div>
-          <div>
-            <label style="color:rgba(255,255,255,0.85);" for="mf-msg">Message</label>
-            <textarea id="mf-msg" class="input" rows="4" placeholder="Tell us how you'd like to help"></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold" style="width:100%;">Submit</button>
-        </form>
-      </div>
-    </sc-if>
-  </div>
-</section>
-
-<section style="padding: 96px 0; background:#FDFBF7;">
-  <div class="wrap">
-    <span class="pill" style="background:rgba(196,148,70,0.12); color:#A3752C;">Year One Roadmap</span>
-    <div class="divider"></div>
-    <h2 style="font-size: clamp(30px, 3.5vw, 44px); color:#091C41; font-weight:800; margin-bottom: 48px;">Long-Term Vision</h2>
-    <div class="grid-3">
-      <sc-for list="{{ phases }}" as="phase" hint-placeholder-count="3">
-        <div class="card" style="{{ phase.style }}">
-          <span class="pill" style="{{ phase.tagStyle }}">{{ phase.tag }}</span>
-          <h3 style="font-size:19px; color:#091C41; margin: 18px 0 10px;">{{ phase.title }}</h3>
-          <p style="font-size:14.5px; color:rgba(9,28,65,0.7); line-height:1.6; margin:0;">{{ phase.copy }}</p>
+<section id="involved" class="relative overflow-hidden py-16 sm:py-20 md:py-24 bg-navy">
+  <div class="absolute -top-36 -right-24 w-80 h-80 sm:w-[420px] sm:h-[420px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(196,148,70,0.2), transparent 70%);"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <span class="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gold/15 text-[#E2C799] border border-gold/40">Community First</span>
+    <h2 class="gradient-text font-serif font-extrabold text-2xl sm:text-3xl md:text-4xl mt-5 mb-10">Join Hands With Us</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+      <div class="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold transition p-6 sm:p-7">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br from-gold/25 to-gold/10 text-gold">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
         </div>
-      </sc-for>
+        <h3 class="text-white text-base font-semibold mb-2">Local Businesses &amp; Restaurants</h3>
+        <p class="text-white/65 text-sm leading-relaxed">Provide food, drinks, snacks, or event sponsorships.</p>
+      </div>
+      <div class="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold transition p-6 sm:p-7">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br from-gold/25 to-gold/10 text-gold">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        </div>
+        <h3 class="text-white text-base font-semibold mb-2">Volunteers &amp; Mentors</h3>
+        <p class="text-white/65 text-sm leading-relaxed">Lend your time, lead sports clinics, or help with event operations.</p>
+      </div>
+      <div class="rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-gold transition p-6 sm:p-7">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 bg-gradient-to-br from-gold/25 to-gold/10 text-gold">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-3V5a3 3 0 0 0-6 0v2H8a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
+        </div>
+        <h3 class="text-white text-base font-semibold mb-2">Supplies &amp; In-Kind Donations</h3>
+        <p class="text-white/65 text-sm leading-relaxed">Donate backpacks, school supplies, or hygiene essentials.</p>
+      </div>
+    </div>
+
+    <div id="contact" class="rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 p-6 sm:p-8 max-w-xl">
+      <h3 class="text-white text-xl sm:text-2xl mb-6 font-serif">Partner or Volunteer Inquiry</h3>
+      <form class="flex flex-col gap-5" onsubmit="return false;">
+        <div>
+          <label class="block text-sm font-semibold text-white/85 mb-1.5" for="mf-name">Name</label>
+          <input id="mf-name" type="text" placeholder="Jane Smith" class="w-full px-4 py-3 rounded-xl border border-navy/15 text-sm focus:outline-none focus:border-gold" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-white/85 mb-1.5" for="mf-email">Email</label>
+          <input id="mf-email" type="email" placeholder="jane@email.com" class="w-full px-4 py-3 rounded-xl border border-navy/15 text-sm focus:outline-none focus:border-gold" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-white/85 mb-1.5" for="mf-org">Organization / Business</label>
+          <input id="mf-org" type="text" placeholder="Optional" class="w-full px-4 py-3 rounded-xl border border-navy/15 text-sm focus:outline-none focus:border-gold" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-white/85 mb-1.5" for="mf-help">How You'd Like to Help</label>
+          <select id="mf-help" class="w-full px-4 py-3 rounded-xl border border-navy/15 text-sm focus:outline-none focus:border-gold">
+            <option>Food Sponsor</option>
+            <option>Volunteer</option>
+            <option>Supplies</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-white/85 mb-1.5" for="mf-msg">Message</label>
+          <textarea id="mf-msg" rows="4" placeholder="Tell us how you'd like to help" class="w-full px-4 py-3 rounded-xl border border-navy/15 text-sm focus:outline-none focus:border-gold"></textarea>
+        </div>
+        <button type="submit" class="w-full px-7 py-3.5 rounded-xl font-bold text-navy bg-gradient-to-br from-gold to-golddark shadow-lg shadow-gold/30">Submit</button>
+      </form>
     </div>
   </div>
 </section>
 
-<footer style="background: #091C41; color: #FFFFFF;">
-  <div class="wrap" style="padding: 64px 0 32px; display:flex; flex-wrap:wrap; gap: 48px; justify-content: space-between;">
-    <div style="max-width:320px;">
-      <div style="display:flex; align-items:center; gap: 12px; margin-bottom: 16px;">
-        <img src="assets/logo.png" alt="The Mensah Foundation" style="height:40px; width:auto; background:#FFFFFF; padding:4px; border-radius:8px;" />
-        <span style="font-family: 'Playfair Display', serif; font-weight:700; font-size:17px;">The Mensah Foundation</span>
+<section class="py-16 sm:py-20 md:py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <span class="inline-block px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gold/10 text-golddark">Year One Roadmap</span>
+    <div class="w-16 h-1 bg-gold rounded-full my-5"></div>
+    <h2 class="font-serif font-extrabold text-navy text-2xl sm:text-3xl md:text-4xl mb-10">Long-Term Vision</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="rounded-2xl bg-white shadow-xl shadow-navy/5 p-6 sm:p-7 border-2 border-gold shadow-gold/25">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase bg-gold text-navy">Phase 1 — Current</span>
+        <h3 class="text-lg text-navy mt-4 mb-2 font-semibold">Grassroots Launch</h3>
+        <p class="text-sm text-navy/70 leading-relaxed">Back-to-School Drives, Direct Family Support.</p>
       </div>
-      <p style="font-size:13.5px; color:rgba(255,255,255,0.6); margin:0;">Serving Youth. Supporting Families. Building Community.</p>
-      <p style="font-size:13.5px; color:rgba(255,255,255,0.6); margin: 12px 0 0;">Twin Cities, Minnesota</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap: 10px; font-size:13.5px;">
-      <a href="#mission">About</a>
-      <a href="#event">Events</a>
-      <a href="#involved">Get Involved</a>
-      <a href="#contact">Contact</a>
-      <a href="#">Privacy Policy</a>
-    </div>
-    <div style="display:flex; flex-direction:column; gap: 10px; font-size:13.5px;">
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-      <a href="#">Facebook</a>
+      <div class="rounded-2xl bg-white shadow-xl shadow-navy/5 p-6 sm:p-7 border border-gold/20">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase bg-navy/10 text-navy">Phase 2</span>
+        <h3 class="text-lg text-navy mt-4 mb-2 font-semibold">Non-Profit Expansion</h3>
+        <p class="text-sm text-navy/70 leading-relaxed">Year-Round Mentorship, Holiday Giveback Programs.</p>
+      </div>
+      <div class="rounded-2xl bg-white shadow-xl shadow-navy/5 p-6 sm:p-7 border border-gold/20">
+        <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase bg-navy/10 text-navy">Phase 3</span>
+        <h3 class="text-lg text-navy mt-4 mb-2 font-semibold">Youth Sports Academies</h3>
+        <p class="text-sm text-navy/70 leading-relaxed">Children's Hospital Outreach &amp; Scholarships.</p>
+      </div>
     </div>
   </div>
-  <div class="wrap" style="padding-bottom: 28px; font-size:12px; color:rgba(255,255,255,0.45); border-top: 1px solid rgba(255,255,255,0.1); padding-top:24px;">© 2026 The Mensah Foundation. All rights reserved.</div>
+</section>
+
+<footer class="bg-navy text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col md:flex-row flex-wrap gap-10 justify-between">
+    <div class="max-w-xs">
+      <div class="flex items-center gap-3 mb-4">
+        <img src="assets/logo.png" alt="The Mensah Foundation" class="h-9 w-auto bg-white p-1 rounded-lg" />
+        <span class="font-serif font-bold text-lg">The Mensah Foundation</span>
+      </div>
+      <p class="text-sm text-white/60">Serving Youth. Supporting Families. Building Community.</p>
+      <p class="text-sm text-white/60 mt-3">Twin Cities, Minnesota</p>
+    </div>
+    <div class="flex flex-col gap-2.5 text-sm">
+      <a href="#mission" class="text-white/75 hover:text-gold">About</a>
+      <a href="#event" class="text-white/75 hover:text-gold">Events</a>
+      <a href="#involved" class="text-white/75 hover:text-gold">Get Involved</a>
+      <a href="#contact" class="text-white/75 hover:text-gold">Contact</a>
+      <a href="#" class="text-white/75 hover:text-gold">Privacy Policy</a>
+    </div>
+    <div class="flex flex-col gap-2.5 text-sm">
+      <a href="#" class="text-white/75 hover:text-gold">Instagram</a>
+      <a href="#" class="text-white/75 hover:text-gold">TikTok</a>
+      <a href="#" class="text-white/75 hover:text-gold">Facebook</a>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 border-t border-white/10 text-xs text-white/45">© 2026 The Mensah Foundation. All rights reserved.</div>
 </footer>
 
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440, &quot;height&quot;: 900}, &quot;activePhase&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: 1, &quot;tsType&quot;: &quot;number&quot;, &quot;options&quot;: [1,2,3], &quot;section&quot;: &quot;Roadmap&quot;}, &quot;showForm&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Get Involved&quot;}}">
-class Component extends DCLogic {
-  renderVals() {
-    const activePhase = this.props.activePhase ?? 1;
-    const baseStyle = { border: '1px solid rgba(196,148,70,0.25)' };
-    const activeStyle = { border: '2px solid #C49446', boxShadow: '0 12px 30px rgba(196,148,70,0.25)' };
-    const baseTag = 'background:rgba(9,28,65,0.08); color:#091C41;';
-    const activeTag = 'background:#C49446; color:#091C41;';
-    return {
-      showForm: this.props.showForm ?? true,
-      phases: [
-        { tag: 'Phase 1 — Current', title: 'Grassroots Launch', copy: 'Back-to-School Drives, Direct Family Support.', style: activePhase === 1 ? activeStyle : baseStyle, tagStyle: activePhase === 1 ? activeTag : baseTag },
-        { tag: 'Phase 2', title: 'Non-Profit Expansion', copy: 'Year-Round Mentorship, Holiday Giveback Programs.', style: activePhase === 2 ? activeStyle : baseStyle, tagStyle: activePhase === 2 ? activeTag : baseTag },
-        { tag: 'Phase 3', title: 'Youth Sports Academies', copy: "Children's Hospital Outreach & Scholarships.", style: activePhase === 3 ? activeStyle : baseStyle, tagStyle: activePhase === 3 ? activeTag : baseTag },
-      ],
-    };
-  }
-}
+<script>
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
 </script>
 </body>
 </html>
